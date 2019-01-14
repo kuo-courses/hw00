@@ -38,6 +38,10 @@ teout = [];     % a ball flight, terminated by a detected ground contact
 yeout = [];     % event.
 ieout = [];
 
+% Simulation constants
+g = -9.81;  % gravitational acceleration
+e = 0.9;    % coefficient of restitution for bouncing
+
 for i = 1:10    % Use a loop to conduct up to 10 bounces
    % Solve the ordinary differential equation until the first terminal event.
    % The state-derivative function is f; in Matlab, @f signifies a
@@ -58,15 +62,10 @@ for i = 1:10    % Use a loop to conduct up to 10 bounces
    yeout = [yeout; ye];
    ieout = [ieout; ie];
    
-   ud = fig.UserData;
-   if ud.stop
-      break;
-   end
-   
    % Set the new initial conditions, with .9 attenuation.
    y0(1) = 0;              % After each bounce, initial position (height)
                            % is zero for the next flight phase.
-   y0(2) = -.9*y(nt,2);    % After each bounce, take the ending velocity
+   y0(2) = -e*y(nt,2);    % After each bounce, take the ending velocity
                            % of the previous segment, and reverse it and
                            % multiply by the coefficient of restitution.
    
@@ -91,9 +90,9 @@ function dydt = f(t,y)
 %   dydt = f(t,y) returns the state-derivative dydt, given a current
 %                 time t and state y. State is a two-element vector
 %                 containing [verticalposition; verticalvelocity].
-dydt = [y(2); -9.8];    % dydt = [verticalvelocity; verticalacceleration]
-                        % where verticalacceleration is g (downward).
-
+dydt = [y(2); g];    % dydt = [verticalvelocity; verticalacceleration]
+                     % where verticalacceleration is g (downward).
+end % subfunction
 % --------------------------------------------------------------------------
 
 function [value,isterminal,direction] = events(t,y)
@@ -115,3 +114,6 @@ function [value,isterminal,direction] = events(t,y)
 value = y(1);     % detect height = 0
 isterminal = 1;   % stop the integration
 direction = -1;   % negative direction
+end % subfunction
+
+end % main function
