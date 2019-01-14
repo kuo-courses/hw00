@@ -12,7 +12,7 @@ These introductory tasks are intended to prepare for Matlab coding exercises. Th
 
 3.  Familiarize yourself with GitHub Markdown, which is a method for formatting text within a repository. Use Markdown to record answers to the following questions.
 
-4.  Consider how to simulate an inverted pendulum, theta'' - wn\*theta = 0, where wn is the natural frequency (omega-n) equal to 1. Describe the modifications needed to convert the ballode demo into an inverted pendulum simulation. (No need to perform the simulation, just describe how it would be done, in a few sentences.)
+4.  Consider how to simulate a different second-order differential equation, the inverted pendulum, theta'' - wn\*theta = 0, where wn is the natural frequency (omega-n) equal to 1. Describe the modifications needed to convert the ballode demo into an inverted pendulum simulation. (No need to perform the simulation, just describe how it would be done, in a few sentences.)
 
 5. Consider how to simulate a first-order differential equation, such as x-dot + 1x = 0, with initial condition x(0) = 1. Describe how the above ODE commands would have to be modified to solve this equation. (No need to perform the simulation.)
 
