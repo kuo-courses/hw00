@@ -1,0 +1,43 @@
+HW00
+Sayed.thangal@locomotionlab.com
+
+# Answer 4
+
+Theta’’=wn*theta is the differential equation. We would make the following modifications
+
+```
+Change the initial conditions to be in terms of angles, angular velocities
+theta0 = [0;-pi/6];  % initial condition for the pendulum in radians, where the current state is stored in vector y = [angle; angular velocity]
+
+The ode function will be changed to
+function dthetadt = f(t,theta)
+dthetadt = [theta(2); theta(1)]; 
+end
+
+The call to the ode would now be: 
+[t,theta] = ode23(@f,[tstart tfinal],theta0,options);
+
+
+We could detect when the pendulum falls to the floor by setting up events for the angle reaching +pi/2 or -pi/2. 
+```
+
+
+# Answer 5
+
+The ODE commands required are: 
+
+```
+
+tstart = 0;
+tfinal = 30;
+x0 = [1];
+ 
+options = odeset('OutputFcn',@odeplot);  
+ 
+   [t,x] = ode23(@f,[tstart tfinal],x0,options);
+
+
+   function dxdt=f(t,x)
+   dxdt=[-x];
+   end 
+```

@@ -7,12 +7,12 @@ These introductory tasks are intended to prepare for Matlab coding exercises. Th
     3. Email your GitHub username to the instructor. This will allow you to be invited to join the course's Classroom site.
   
  2. Familiarize yourself with Matlab's tools for solving ordinary differential equations. The [ballode.m](https://github.com/biomechanics-course/hw00/blob/master/ballode.m) demo shows how to simulate a ball bouncing on the ground. In particular, look up the `ode23` (or `ode45`) command documentation, and read about event detection.
-     1. Starting with `ballode`, create a new simulation `ballodebounceandhalf` that has slightly different dynamics. Modify the flight dynamics to include viscous drag force `-B*v`, where `v` is ball velocity. (Treat the ball's mass as 1.) Also modify the coefficient of restitution for the bounce to equal -0.5.
+     1. Starting with `ballode`, create a new simulation `ballodebounceandhalf` that has slightly different dynamics. Modify the flight dynamics to include viscous drag force `-B*v`, where `v` is ball velocity. (Treat the ball's mass as 1.) Also modify the coefficient of restitution for the bounce to equal 0.5.
      2. Instead of performing 10 flight segments, only simulate 2. And after the first bounce, terminate the simulation by detecting the apex of the ball's flight (zero velocity).
 
 3.  Familiarize yourself with GitHub Markdown, which is a method for formatting text within a repository. Use Markdown to record answers to the following questions.
 
-4.  Consider how to simulate a different second-order differential equation, the inverted pendulum, theta'' - wn\*theta = 0, where wn is the natural frequency (omega-n) equal to 1. Describe the modifications needed to convert the ballode demo into an inverted pendulum simulation. (No need to perform the simulation, just describe how it would be done, in a few sentences.)
+4.  Consider how to simulate a different second-order differential equation, the inverted pendulum, theta'' - wn^2\*theta = 0, where wn is the natural frequency (omega-n) equal to 1. This is because **wn=sqrt(g/L)**, where L is the length of the pendulum. Describe the modifications needed to convert the ballode demo into an inverted pendulum simulation. (No need to perform the simulation, just describe how it would be done, in a few sentences.)
 
 5. Consider how to simulate a first-order differential equation, such as x-dot + 1x = 0, with initial condition x(0) = 1. Describe how the above ODE commands would have to be modified to solve this equation. (No need to perform the simulation.)
 
